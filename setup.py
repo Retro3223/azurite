@@ -2,7 +2,10 @@ from setuptools import setup
 
 setup(
     name='frc3223-azurite',
-    version='0.0.1',
+    version='0.0.2',
+    author='Ellery Newcomer',
+    author_email='ellery-newcomer@utulsa.edu',
+    url='https://github.com/Retro3223/azurite',
     packages=[
         'frc3223_azurite',
     ],

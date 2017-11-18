@@ -1,5 +1,5 @@
 def solid_cylinder(mass_kg, radius_m):
-    return 0.5 * mass_kg * raduis_m ** 2
+    return 0.5 * mass_kg * radius_m ** 2
 
 
 def cylinder_about_center(mass_kg, radius_m, length_m):
