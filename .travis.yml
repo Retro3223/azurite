@@ -1,0 +1,9 @@
+language: python
+script: "./run_tests.sh"
+deploy:
+    provider: pypi
+    user: ariovistus
+    password:
+        secure: "1TDgSx6HbjdTqifD/x1aQ+J5e5KKuCTVrqZH6jZ3e9DB4RqU+gFI5Whb31OeLsBpS0UdWeSA0EEeiusQ/ZIwk9AjYl96gNx5ofHHv+7GWnwlmnfYFGZu4EqMME4lhFz0i1tfshqPT+qZnvcw0IhNdJuUJ5ovnmly2Yp3I5IGWjUkC3toLiCDCso4yz6SfHZNZ9YHMsrnj1cq/I9QbitdV5a5o6u/n17L1bZfvcy2ymrbjS4s2DRhKzTmy38btJs3a7sc4SHrPpIAZue36bTw1+Q2iOcxeqK9OgT8WZXKNagASHkwg4TI+3yRBcIxWbOom8i4vqJ56/VvYmgwz3fhUMfiU2FSNK0skvgenlyNJoVVNczoydMVN7G8t/OA9HhiPhamfBv0iB9ggaxpVvQl306KszaoNIsBxAIuzo3EqSRbZfZwUSpGfaSvM7YpP4dQ2K5VqkZGEQAx22xN7nhneKQE47cnd2YnoquPhv2vmgzmQpPc+yP0NFTpVc/qHyCUcNu5MN7CcxYCOiYHBZB4pT8rSyRZN3KZ5X3k7/cvlX7rZv8LcTr0hAoudfFZVHOy24eWX4l1Yr7Yx+I7EatEuB+ymfUX74rloTyJbQ261VAhR4F5nOhDNFC1J+7pxxPg6FwbBqNbnjLWpFgQIKDHuxM10LyuMX4kYjQphcKtEXI="
+    on:
+        tags: true
