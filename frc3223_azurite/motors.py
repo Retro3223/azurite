@@ -33,16 +33,19 @@ class MotorParams:
         return out_torque 
 
     def torque_at_speed_and_voltage(self, invel_radps, voltage_v):
-        a = voltage_v - invel_radps * self.kspeed() 
-        return a * self.ktorque() / self.resistance()
+        i = (voltage_v - self.back_emf()) / self.resistance()
+        return i * self.ktorque()
 
     def speed_at_torque(self, intorque_Nm):
         out_vel_radps = (1 - intorque_Nm / self.stall_torque) * self.free_speed
         return out_vel_radps 
 
     def speed_at_torque_and_voltage(self, intorque_Nm, voltage_v):
-        a = voltage_v - intorque_Nm * self.resistance() / self.ktorque()
-        return a / self.kspeed()
+        v = voltage_v - intorque_Nm * self.resistance() / self.ktorque()
+        return v / self.kspeed()
+
+    def back_emf(self, invel_radps):
+        return invel_radps * self.kspeed()
 
 
 class MotorSystem:
@@ -75,6 +78,10 @@ class MotorSystem:
     def free_speed(self):
         return self._v_motor_to_sys(self.motor.free_speed)
 
+    def motor_back_emf(self, invel_radps):
+        motor_speed = self._v_sys_to_motor(invel_radps)
+        return self.motor.back_emf(motor_speed)
+        
     def torque_at_motor_current(self, motor_current_a):
         k = self.motor.ktorque()
         motor_torque = motor_current_a * k
