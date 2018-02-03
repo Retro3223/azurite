@@ -33,7 +33,7 @@ class MotorParams:
         return out_torque 
 
     def torque_at_speed_and_voltage(self, invel_radps, voltage_v):
-        i = (voltage_v - self.back_emf()) / self.resistance()
+        i = (voltage_v - self.back_emf(invel_radps)) / self.resistance()
         return i * self.ktorque()
 
     def speed_at_torque(self, intorque_Nm):
@@ -136,6 +136,12 @@ _775pro = MotorParams(
     stall_torque=0.71, 
     stall_current=134., 
     free_speed=rpm_to_radps(18730.))
+
+redline = MotorParams(
+    name="redline", 
+    stall_torque=0.63, 
+    stall_current=107., 
+    free_speed=rpm_to_radps(19649.))
 
 rs775 = MotorParams(
     name="rs775", 
