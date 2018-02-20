@@ -1,7 +1,7 @@
 import sys
 from setuptools import setup
 
-version = '0.0.6'
+version = '0.0.7'
 
 if sys.argv[-1] == 'check-version':
     import os

@@ -13,7 +13,7 @@ def read_csv(fnom):
         reader = csv.reader(f)
         headers = next(reader)
         
-    data = genfromtxt('drivetrain.csv', delimiter=',', skip_header=1)
+    data = genfromtxt(fnom, delimiter=',', skip_header=1)
     assert len(headers) == data.shape[1]
     results = {}
     for i, header in enumerate(headers):
