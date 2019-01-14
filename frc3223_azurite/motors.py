@@ -127,9 +127,9 @@ minicim = MotorParams(
 
 bag = MotorParams(
     name="bag", 
-    stall_torque=0.4, 
-    stall_current=41., 
-    free_speed=rpm_to_radps(14000.))
+    stall_torque=0.43, 
+    stall_current=53., 
+    free_speed=rpm_to_radps(13180.))
 
 _775pro = MotorParams(
     name="775pro", 
@@ -154,3 +154,9 @@ am9015 = MotorParams(
     stall_torque=0.428, 
     stall_current=63.8, 
     free_speed=rpm_to_radps(16000.))
+
+neo = MotorParams(
+    name="neo", 
+    stall_torque=2.6, 
+    stall_current=105,
+    free_speed=rpm_to_radps(5676.))
