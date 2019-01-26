@@ -73,7 +73,7 @@ def show_data(fnom,
     data = read_csv(fnom)
     assert s_t is None or s is None, "only one of s, s_t can be specified"
     assert e_t is None or e is None, "only one of e, e_t can be specified"
-    assert value_keys is None or exclude_value_keys, (
+    assert value_keys is None or exclude_value_keys is None, (
         "only one of value_keys, exclude_value_keys can be specified"
     )
 
@@ -92,7 +92,10 @@ def show_data(fnom,
         s = 0
         print("s=%s" % (s,))
     if e_t is not None:
-        e = numpy.argmin(data[time_key] <= e_t)
+        if len(data[time_key]) != 0 and e_t < data[time_key][-1]:
+            e = numpy.argmin(data[time_key] <= e_t)
+        else:
+            e = len(data[time_key])
         print ("e_t=%s -> e=%s" % (e_t, e))
     elif e is None:
         e = len(data[time_key])
